@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tsinu Belachew | Friendship Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8a2be2;
+            --secondary: #ff69b4;
+            --accent: #00bfff;
+            --light: #f8f4ff;
+            --dark: #2d1b3d;
+            --text: #333333;
+            --shadow: rgba(138, 43, 226, 0.2);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L100,100 Z' fill='white' fill-opacity='0.05'/%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid white;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background-color: #f0e6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .qualities {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .quality-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .quality-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .quality-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Future Features Section */
+        .future-features {
+            background-color: #f0e6ff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Friendship Codes Section */
+        .codes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .code-card {
+            background: white;
+            border-radius: 12px;
+            width: 320px;
+            padding: 30px;
+            box-shadow: 0 10px 25px var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .code-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            line-height: 1;
+        }
+
+        .code-card h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .code-card p {
+            margin-bottom: 25px;
+        }
+
+        .code-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* GitHub Section */
+        .github-section {
+            background: linear-gradient(135deg, var(--dark), #4a2b8a);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .github-section h2 {
+            color: white;
+        }
+
+        .github-section h2::after {
+            background: linear-gradient(to right, var(--accent), #ff69b4);
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: var(--dark);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .github-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .github-link i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .friendship-quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0d6ff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+                font-size: 60px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .code-card {
+                width: 100%;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="profile-img">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h1>Tsinu Belachew</h1>
+            <p class="tagline">Smart, Beautiful, Business Owner, Employee, and Software Engineering Student</p>
+            <p class="tagline">A celebration of an amazing friendship</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Tsinu</h2>
+            <p class="section-subtitle">Let me tell you about my incredible friend Tsinu Belachew</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Tsinu Belachew is a truly remarkable person who excels in every aspect of her life. She's not only incredibly smart and beautiful but also a successful business owner while simultaneously working as an employee and pursuing her studies in software engineering.</p>
+                    <br>
+                    <p>Her ability to balance multiple demanding roles with grace and determination is truly inspiring. Tsinu's intelligence shines through in her academic pursuits and business decisions, while her kindness and warmth make her a wonderful friend to everyone lucky enough to know her.</p>
+                    <br>
+                    <p>This website is a tribute to our friendship and a showcase of her many talents and qualities.</p>
+                </div>
+                
+                <div class="qualities">
+                    <div class="quality-item">
+                        <div class="quality-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div>
+                            <h3>Intelligent</h3>
+                            <p>Excelling in software engineering studies and business strategy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quality-item">
+                        <div class="quality-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div>
+                            <h3>Business Leader</h3>
+                            <p>Successfully owns and operates her own business</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quality-item">
+                        <div class="quality-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3>Tech Talent</h3>
+                            <p>Pursuing software engineering with passion and skill</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quality-item">
+                        <div class="quality-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div>
+                            <h3>Beautiful Soul</h3>
+                            <p>Kind, caring, and a wonderful friend to everyone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Features Section -->
+    <section class="future-features" id="future">
+        <div class="container">
+            <h2>Website Future Features</h2>
+            <p class="section-subtitle">Here are features that could be added to enhance this friendship website</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Photo Gallery</h3>
+                    <p>A dedicated section to showcase memorable moments and photos of Tsinu and our friendship journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                    <h3>Friendship Blog</h3>
+                    <p>A blog section to share stories, experiences, and updates about our friendship and Tsinu's achievements.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Projects Showcase</h3>
+                    <p>A portfolio section to display Tsinu's software engineering projects and business accomplishments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Timeline</h3>
+                    <p>An interactive timeline highlighting key moments in Tsinu's life and our friendship journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Guestbook</h3>
+                    <p>Allow friends and family to leave messages, wishes, and comments for Tsinu.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App</h3>
+                    <p>Create a companion mobile application for easy access to friendship updates and features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Friendship Codes Section -->
+    <section id="codes">
+        <div class="container">
+            <h2>Friendship Codes</h2>
+            <p class="section-subtitle">Three fundamental codes that define our special friendship</p>
+            
+            <div class="codes-container">
+                <div class="code-card">
+                    <div class="code-number">1</div>
+                    <div class="code-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Code of Support</h3>
+                    <p>Always being there for each other through challenges and celebrations, offering unwavering support in all endeavors whether academic, professional, or personal.</p>
+                    <p><strong>Key Principle:</strong> "I've got your back, always."</p>
+                </div>
+                
+                <div class="code-card">
+                    <div class="code-number">2</div>
+                    <div class="code-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Code of Celebration</h3>
+                    <p>Actively celebrating each other's successes, big and small - from academic achievements to business milestones, with genuine enthusiasm and pride.</p>
+                    <p><strong>Key Principle:</strong> "Your win is my win."</p>
+                </div>
+                
+                <div class="code-card">
+                    <div class="code-number">3</div>
+                    <div class="code-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Code of Growth</h3>
+                    <p>Encouraging and inspiring each other to grow, learn, and become the best versions of ourselves, while respecting our individual journeys and ambitions.</p>
+                    <p><strong>Key Principle:</strong> "Growing together, individually."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="github-section">
+        <div class="container">
+            <h2>Share on GitHub</h2>
+            <p class="section-subtitle">This friendship website can be shared on GitHub to celebrate Tsinu with the world</p>
+            
+            <p>By sharing this website on GitHub, we can:</p>
+            <br>
+            <p>• Showcase Tsinu's qualities and achievements to a wider audience</p>
+            <p>• Demonstrate web development skills (perfect for a software engineering student!)</p>
+            <p>• Create a permanent tribute to our friendship that can be accessed anytime</p>
+            <p>• Potentially inspire others to create similar websites for their friends</p>
+            
+            <a href="https://github.com" target="_blank" class="github-link">
+                <i class="fab fa-github"></i> Share on GitHub
+            </a>
+            
+            <div style="margin-top: 40px; background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3>GitHub Repository Suggestions:</h3>
+                <p>1. Name: <strong>tsinu-friendship-tribute</strong></p>
+                <p>2. Description: "A website celebrating Tsinu Belachew - software engineering student, business owner, and amazing friend"</p>
+                <p>3. Topics: friendship, tribute, software-engineer, business-owner, student</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="friendship-quote">"A true friend is one of life's greatest blessings. Celebrating Tsinu - an incredible friend who inspires everyone around her."</p>
+            <p>Friendship Website for Tsinu Belachew | Created with <i class="fas fa-heart" style="color: #ff69b4;"></i></p>
+            <p style="margin-top: 15px; color: #c5b3e6;">© 2023 Friendship Tribute | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for feature cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            const codeCards = document.querySelectorAll('.code-card');
+            
+            // Add initial animation class
+            featureCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+            
+            // Add initial animation for code cards
+            codeCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 + (index * 100));
+            });
+            
+            // Add hover effect to quality items
+            const qualityItems = document.querySelectorAll('.quality-item');
+            qualityItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // GitHub link interaction
+            const githubLink = document.querySelector('.github-link');
+            githubLink.addEventListener('click', function(e) {
+                alert('In a real implementation, this would redirect to a GitHub repository created for Tsinu. You can create a repo and update the link accordingly.');
+            });
+        });
+    </script>
+</body>
+</html>
