@@ -61,20 +61,20 @@
             z-index: 1;
         }
 
+        .profile-img-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             border: 6px solid white;
             object-fit: cover;
-            margin: 0 auto 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            background-color: #f0e6ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            color: var(--primary);
         }
 
         h1 {
@@ -342,10 +342,9 @@
                 font-size: 2rem;
             }
             
-            .profile-img {
-                width: 150px;
-                height: 150px;
-                font-size: 60px;
+            .profile-img-container {
+                width: 180px;
+                height: 180px;
             }
             
             section {
@@ -365,23 +364,21 @@
             .feature-card {
                 padding: 20px;
             }
-        }
-        img{
-
-            width:300px;
-            height:300px;
-            border-radius:200px;
             
+            .profile-img-container {
+                width: 160px;
+                height: 160px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <!-- <div class="container header-content"> -->
-       
-              <img src="tsinu.jpg">
-            <!-- </div> -->
+        <div class="container header-content">
+            <div class="profile-img-container">
+                <img src="tsinu.jpg" alt="Tsinu Balew" class="profile-img">
+            </div>
             <h1>Tsinu Balew</h1>
             <p class="tagline">Smart, Beautiful, Business Owner, Employee, and Software Engineering Student</p>
             <p class="tagline">A celebration of an amazing friendship</p>
@@ -631,11 +628,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
